@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Taha Syed — Electrical Engineering student at the University of Toronto, building compilers, FPGA systems, and embedded firmware.">
+  <meta name="theme-color" content="#10151b">
+  <title>Taha Syed | Portfolio</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="Taha Syed home">ts<span>.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span>+</span></button>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a>
+    </nav>
+    <a class="header-contact" href="#contact">Contact</a>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <svg class="hero-circuit" viewBox="0 0 300 185" fill="none" aria-hidden="true" focusable="false">
+        <defs>
+          <path id="trace-a" d="M12 25H62L93 56H166L189 79H286" pathLength="100"/>
+          <path id="trace-b" d="M27 53H109L132 76H210L225 91H275" pathLength="100"/>
+          <path id="trace-c" d="M8 87H48L72 111H156L180 135H292" pathLength="100"/>
+          <path id="trace-d" d="M35 103H102L120 121H209L246 158H281" pathLength="100"/>
+          <path id="trace-e" d="M18 143H71L98 170H181L207 144H289" pathLength="100"/>
+          <path id="trace-f" d="M24 15H147L175 43H231L255 67H294" pathLength="100"/>
+        </defs>
+        <g class="circuit-traces">
+          <use href="#trace-a"/><use href="#trace-b"/><use href="#trace-c"/><use href="#trace-d"/>
+          <use href="#trace-e"/><use href="#trace-f"/>
+        </g>
+        <g class="circuit-signals"><use href="#trace-a"/><use href="#trace-c"/><use href="#trace-e"/></g>
+        <g class="circuit-nodes">
+          <circle cx="12" cy="25" r="2.5"/><circle cx="286" cy="79" r="2.5"/>
+          <circle cx="27" cy="53" r="2.5"/><circle cx="275" cy="91" r="2.5"/>
+          <circle cx="8" cy="87" r="2.5"/><circle cx="292" cy="135" r="2.5"/>
+          <circle cx="35" cy="103" r="2.5"/><circle cx="281" cy="158" r="2.5"/>
+          <circle cx="18" cy="143" r="2.5"/><circle cx="289" cy="144" r="2.5"/>
+          <circle cx="24" cy="15" r="2.5"/><circle cx="294" cy="67" r="2.5"/>
+        </g>
+      </svg>
+      <div class="hero-copy">
+        <p class="eyebrow">ELECTRICAL & COMPUTER ENGINEERING · UOFT</p>
+        <div class="hero-identity">
+          <h1 id="hero-title">Taha Syed</h1>
+          <img class="portrait" src="images/pic.png" alt="Taha Syed" width="144" height="144">
+        </div>
+        <p class="hero-description">Third-year Electrical Engineering student at the University of Toronto, interested in compilers, RTL, firmware, and hardware &amp; software co-design.</p>
+        <div class="hero-actions"><a class="button primary" href="#projects">View projects <span>↘</span></a><a class="text-link" href="https://github.com/taha412">GitHub ↗</a><a class="text-link" href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a></div>
+      </div>
+      <div class="hero-footer"><span>BASED IN TORONTO, CANADA</span><span>UNIVERSITY OF TORONTO</span><a href="#about" aria-label="Scroll to about">↓</a></div>
+    </section>
+    <section id="about" class="section about-section">
+      <div class="section-label"><span>01 / ABOUT</span></div>
+      <div class="about-grid"><h2>About me</h2><div class="about-copy"><p>I’m interested in how software is translated, executed, and how hardware interacts with software.</p><p>My recent work includes a C compiler and an FPGA data-acquisition pipeline. I’m looking to explore more of compiler development, digital design, and embedded systems.</p><div class="education"><span class="small-label">EDUCATION</span><h3>University of Toronto</h3><p>BASc, Electrical Engineering · PEY Co-op<br>September 2024 — Present</p><p class="education-gpa">CGPA <strong>3.94 / 4.00</strong></p></div></div></div>
+    </section>
+    <section id="projects" class="section">
+      <div class="section-label"><span>02 / PROJECTS</span></div>
+      <div class="section-heading"><h2>Projects</h2><p>Recent software and hardware projects.</p></div>
+      <div class="project-grid project-cards">
+      <article class="project project-card">
+        <a class="project-card-link" href="projects/c-compiler.html" aria-labelledby="c-compiler-title">
+          <img class="project-thumbnail project-thumbnail-diagram" src="images/compiler-dark.png" alt="C compiler pipeline from source code through lexing, parsing, semantic analysis, and optimization to x86-64 assembly" loading="lazy" width="1254" height="1254">
+          <div class="project-body"><div class="project-meta">SOFTWARE <span>2026</span></div><h3 id="c-compiler-title">C Compiler</h3><p>A seven-stage compiler written in C, generating x86-64 assembly.</p><span class="project-link">View project <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+      </article>
+      <article class="project project-card">
+        <a class="project-card-link" href="projects/fpga-data-acquisition.html" aria-labelledby="fpga-data-acquisition-title">
+          <img class="project-thumbnail" src="images/acquisition-thumbnail.svg" alt="Data acquisition pipeline: capture, DDR3 buffer, and USB readout to Python" width="400" height="400" loading="lazy">
+          <div class="project-body"><div class="project-meta">HARDWARE / SOFTWARE <span>2026</span></div><h3 id="fpga-data-acquisition-title">FPGA Data Acquisition</h3><p>A DRAM-buffered pipeline connecting high-speed sensor input to a USB-C host.</p><span class="project-link">View project <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+      </article>
+      <article class="project project-card">
+        <a class="project-card-link" href="projects/alterraform.html" aria-labelledby="alterraform-title">
+          <img class="project-thumbnail" src="images/alterraform.png" alt="Alterraform terrain simulation with elevation colors and terrain editing controls" loading="lazy" width="988" height="622">
+          <div class="project-body"><div class="project-meta">RTL <span>2025</span></div><h3 id="alterraform-title">Alterraform</h3><p>A 3D terrain simulation implemented in Verilog on a DE1-SoC FPGA.</p><span class="project-link">View project <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+      </article>
+      </div>
+    </section>
+    <section id="experience" class="section"><div class="section-label"><span>03 / EXPERIENCE</span></div><div class="section-heading"><h2>Experience</h2></div><article class="experience-row"><div class="experience-date">MAY 2025 — PRESENT<span>STUDENT TEAM · TORONTO</span></div><div><h3>Firmware Developer</h3><p class="organization">University of Toronto Aerospace Team</p></div><span class="experience-icon" aria-hidden="true">↗</span></article><article class="experience-row"><div class="experience-date">MAY — AUG 2026<span>RESEARCH · TORONTO</span></div><div><h3>FPGA Engineering Intern</h3><p class="organization">Intelligent Sensory Microsystems Laboratory · UofT</p></div><span class="experience-icon" aria-hidden="true">↗</span></article></section>
+    <section id="skills" class="section"><div class="section-label"><span>04 / SKILLS</span></div><div class="section-heading"><h2>Technical skills</h2><p>The languages, systems, and tools I work with.</p></div><div class="skills-grid"><article><span class="skill-symbol" aria-hidden="true">{ }</span><h3>Languages</h3><p>C · C++ · Verilog<br>Python · Java</p></article><article><span class="skill-symbol" aria-hidden="true">⌘</span><h3>Embedded systems</h3><p>Zephyr RTOS · UART · QSPI<br>Interrupt-driven drivers<br>Microcontrollers · Memory-mapped I/O</p></article><article><span class="skill-symbol" aria-hidden="true">▧</span><h3>Hardware & verification</h3><p>Vivado · Quartus Prime · ModelSim<br>Oscilloscopes · Logic analyzers<br>FPGA RTL · Clock-domain crossing</p></article><article><span class="skill-symbol" aria-hidden="true">&gt;_</span><h3>Software & systems</h3><p>Linux · Git · Compiler design<br>Semantic analysis · Three-address code<br>Hardware–software co-design</p></article></div></section>
+    <section id="contact" class="contact"><h2>Contact Me</h2><a href="mailto:taham.syed@mail.utoronto.ca">taham.syed@mail.utoronto.ca <span>↗</span></a></section>
+  </main>
+  <footer><a class="wordmark" href="#">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A 3D terrain simulation implemented in Verilog on a DE1-SoC FPGA.">
+  <meta name="theme-color" content="#10151b">
+  <title>Alterraform | Taha Syed</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html" aria-label="Taha Syed home">ts<span>.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span>+</span></button>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="../index.html#about">About</a><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a>
+    </nav>
+    <a class="header-contact" href="../index.html#contact">Contact <span>↗</span></a>
+  </header>
+  <main id="main" class="project-page">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <article>
+      <header class="project-detail-header">
+        <div class="project-meta">RTL / GRAPHICS <span>2025</span></div>
+        <h1>Alterraform</h1>
+        <p class="project-intro">An interactive FPGA terrain simulator with mouse-controlled editing and height-based colors, implemented in Verilog on the DE1-SoC.</p>
+        <div class="tags"><span>Verilog</span><span>Quartus Prime</span><span>ModelSim</span></div>
+      </header>
+      <p class="source-note">Source code cannot be shared because this project was completed as part of a course.</p>
+      <figure class="project-figure">
+        <video controls playsinline preload="metadata" poster="../images/alterraform.png" aria-label="Alterraform demonstration">
+          <source src="../videos/alterraform_video.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="../videos/alterraform_video.mp4">Download the demonstration video</a>.
+        </video>
+        <figcaption>Alterraform demonstration on the FPGA.</figcaption>
+      </figure>
+      <div class="project-writeup">
+        <h2>What it does</h2>
+        <p>Alterraform is an interactive terrain simulator inspired by augmented-reality sandboxes. It stores a <strong>200 &times; 200 height map</strong> and displays each cell as a 2 &times; 2 pixel region. Heights range from 0 to 511, with colors progressing from water and beaches to grass, mountains, and snow.</p>
+        <p>A mouse-controlled brush raises or lowers terrain into parabolic hills. Board switches change the editing mode, and four keys load a flat seabed, grassland, mountainside, or river valley.</p>
+        <div class="table-block" tabindex="0" role="region" aria-label="Interaction modes"><table><thead><tr><th scope="col">Mode</th><th scope="col">Interaction</th></tr></thead><tbody>
+          <tr><th scope="row">Brush</th><td>Left-click raises terrain, right-click lowers it.</td></tr>
+          <tr><th scope="row">Radius / scale</th><td>Adjust brush radius from 0&ndash;63 or height scale from 0&ndash;3. Middle-click restores the default for the selected setting.</td></tr>
+          <tr><th scope="row">Flood</th><td>Switch SW2 enables flood mode. Left/right mouse buttons raise or lower the water level; red marks submerged terrain and blue marks terrain above water. The display reports the submerged percentage.</td></tr>
+        </tbody></table></div>
+        <h2>System Architecture</h2>
+        <p>The design separates mouse input, terrain storage, and display generation. The main controller coordinates them: it captures user settings, schedules terrain updates, and supplies the coordinates and colors needed by the VGA adapter.</p>
+      </div>
+      <figure class="project-figure system-diagram">
+        <img src="../images/alterraform-system.svg" alt="System diagram: mouse and board inputs feed main control and terrain memory; terrain colors and the VGA adapter are aligned below main control" width="800" height="540" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
+      <div class="project-writeup">
+        <h2>Mouse Input and Terrain Update Logic</h2>
+        <p>The PS/2 controller feeds a mouse interpreter that organizes incoming bytes into movement and button information. A byte-organizer state machine waits for each part of the packet before updating the cursor; button signals pass through debouncing logic.</p>
+        <p>The <code>cellValueAccessor</code> handles terrain memory. It calculates cell addresses and the brush's height change from cursor position, radius, and scale. Raise/lower logic combines that change with the current height, while a selection stage chooses between the brush result and preset-map values.</p>
+      </div>
+      <figure class="project-figure system-diagram">
+        <img src="../images/alterraform-memory.svg" alt="Terrain memory diagram showing cell address calculation, height RAM, brush height calculation, raise/lower logic, and selection for write-back" width="800" height="360" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
+      <div class="project-writeup">
+        <h2>Coordinating memory and display</h2>
+        <p>A 16-state, binary-encoded VGA state machine steps through the terrain and interface regions. It advances scan coordinates, controls drawing, and draws interface elements such as the radius slider and scale number.</p>
+        <p>The frame controller captures inputs into pipeline registers and schedules brush writes and display updates. I refactored memory access and VGA logic to operate concurrently, coordinating shared memory access so rendering and display updates could proceed in parallel.</p>
+        <h2>Additional Details</h2>
+        <p>This was an ECE241 course team project implemented in Verilog on the Altera DE1-SoC, using Quartus Prime and ModelSim.</p>
+        <p>The central engineering challenge was coordinating input, state, memory timing, and pixel output. The design made those responsibilities explicit through separate modules and state machines.</p>
+      </div>
+    </article>
+    <a class="back-link bottom-back-link" href="../index.html#projects">&larr; All projects</a>
+  </main>
+  <footer><a class="wordmark" href="../index.html">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
+</body>
+</html>
