@@ -6,22 +6,22 @@
   <meta name="description" content="A 3D terrain simulation implemented in Verilog on a DE1-SoC FPGA.">
   <meta name="theme-color" content="#10151b">
   <title>Alterraform | Taha Syed</title>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css">
-  <script src="../script.js" defer></script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="wordmark" href="../index.html" aria-label="Taha Syed home">ts<span>.</span></a>
+    <a class="wordmark" href="../../" aria-label="Taha Syed home">ts<span>.</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span>+</span></button>
     <nav id="navigation" aria-label="Main navigation">
-      <a href="../index.html#about">About</a><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a>
+      <a href="../../#about">About</a><a href="../../#projects">Projects</a><a href="../../#experience">Experience</a><a href="../../#skills">Skills</a>
     </nav>
-    <a class="header-contact" href="../index.html#contact">Contact <span>↗</span></a>
+    <a class="header-contact" href="../../#contact">Contact <span>↗</span></a>
   </header>
   <main id="main" class="project-page">
-    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <a class="back-link" href="../../#projects">&larr; Back to projects</a>
     <article>
       <header class="project-detail-header">
         <div class="project-meta">RTL / GRAPHICS <span>2025</span></div>
@@ -31,9 +31,9 @@
       </header>
       <p class="source-note">Source code cannot be shared because this project was completed as part of a course.</p>
       <figure class="project-figure">
-        <video controls playsinline preload="metadata" poster="../images/alterraform.png" aria-label="Alterraform demonstration">
-          <source src="../videos/alterraform_video.mp4" type="video/mp4">
-          Your browser does not support embedded video. <a href="../videos/alterraform_video.mp4">Download the demonstration video</a>.
+        <video controls playsinline preload="metadata" poster="../../images/alterraform.png" aria-label="Alterraform demonstration">
+          <source src="../../videos/alterraform_video.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="../../videos/alterraform_video.mp4">Download the demonstration video</a>.
         </video>
         <figcaption>Alterraform demonstration on the FPGA.</figcaption>
       </figure>
@@ -50,7 +50,7 @@
         <p>The design separates mouse input, terrain storage, and display generation. The main controller coordinates them: it captures user settings, schedules terrain updates, and supplies the coordinates and colors needed by the VGA adapter.</p>
       </div>
       <figure class="project-figure system-diagram">
-        <img src="../images/alterraform-system.svg" alt="System diagram: mouse and board inputs feed main control and terrain memory; terrain colors and the VGA adapter are aligned below main control" width="800" height="540" loading="lazy">
+        <img src="../../images/alterraform-system.svg" alt="System diagram: mouse and board inputs feed main control and terrain memory; terrain colors and the VGA adapter are aligned below main control" width="800" height="540" loading="lazy">
         <figcaption></figcaption>
       </figure>
       <div class="project-writeup">
@@ -59,7 +59,7 @@
         <p>The <code>cellValueAccessor</code> handles terrain memory. It calculates cell addresses and the brush's height change from cursor position, radius, and scale. Raise/lower logic combines that change with the current height, while a selection stage chooses between the brush result and preset-map values.</p>
       </div>
       <figure class="project-figure system-diagram">
-        <img src="../images/alterraform-memory.svg" alt="Terrain memory diagram showing cell address calculation, height RAM, brush height calculation, raise/lower logic, and selection for write-back" width="800" height="360" loading="lazy">
+        <img src="../../images/alterraform-memory.svg" alt="Terrain memory diagram showing cell address calculation, height RAM, brush height calculation, raise/lower logic, and selection for write-back" width="800" height="360" loading="lazy">
         <figcaption></figcaption>
       </figure>
       <div class="project-writeup">
@@ -71,8 +71,8 @@
         <p>The central engineering challenge was coordinating input, state, memory timing, and pixel output. The design made those responsibilities explicit through separate modules and state machines.</p>
       </div>
     </article>
-    <a class="back-link bottom-back-link" href="../index.html#projects">&larr; All projects</a>
+    <a class="back-link bottom-back-link" href="../../#projects">&larr; All projects</a>
   </main>
-  <footer><a class="wordmark" href="../index.html">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
+  <footer><a class="wordmark" href="../../">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
 </body>
 </html>

@@ -6,22 +6,22 @@
   <meta name="description" content="A seven-stage compiler written in C, generating x86-64 assembly.">
   <meta name="theme-color" content="#10151b">
   <title>C compiler | Taha Syed</title>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css">
-  <script src="../script.js" defer></script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="wordmark" href="../index.html" aria-label="Taha Syed home">ts<span>.</span></a>
+    <a class="wordmark" href="../../" aria-label="Taha Syed home">ts<span>.</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span>+</span></button>
     <nav id="navigation" aria-label="Main navigation">
-      <a href="../index.html#about">About</a><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a>
+      <a href="../../#about">About</a><a href="../../#projects">Projects</a><a href="../../#experience">Experience</a><a href="../../#skills">Skills</a>
     </nav>
-    <a class="header-contact" href="../index.html#contact">Contact <span>↗</span></a>
+    <a class="header-contact" href="../../#contact">Contact <span>↗</span></a>
   </header>
   <main id="main" class="project-page">
-    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <a class="back-link" href="../../#projects">&larr; Back to projects</a>
     <article>
       <header class="project-detail-header">
         <div class="project-meta">SOFTWARE <span>2026</span></div>
@@ -31,12 +31,12 @@
         <a class="project-link" href="https://github.com/taha412/mini-c-compiler/">GitHub / Source code <span aria-hidden="true">&#8599;</span></a>
       </header>
       <div class="project-writeup">
-        <h2>Dexcription</h2>
+        <h2>Description</h2>
         <p>I built this compiler to understand how C programs become machine instructions. The frontend, semantic analysis, intermediate representation, and optimization passes are written from scratch in C.</p>
         <p>It supports a subset of C: integer variables and expressions, local scopes, functions, conditionals, loops, and short-circuit logic. The original backend generates x86-64 assembly using the System V AMD64 calling convention, with GCC handling assembly and linking. Each function allocates its own stack frame to store local variables and temporaries. Stack frame size is determined during semantic analysis and lowering phases.</p>
 
         <h2>Development</h2>
-        <p>I started by generating assembly directly from an abstract syntax tree (AST), the parser's structured representation of a program. This gave me a working compiler, but it produced a lot of unnecessary machine code and was not omptimized. Additionally, all operations were done by pushing 32 bit integers to the stack, which could lead to stack pointer misalignment issues.</p>
+        <p>I started by generating assembly directly from an abstract syntax tree (AST), the parser's structured representation of a program. This gave me a working compiler, but it produced a lot of unnecessary machine code and was not optimized. Additionally, all operations were done by pushing 32 bit integers to the stack, which could lead to stack pointer misalignment issues.</p>
         <p>I then introduced a custom <strong>three-address intermediate representation (IR)</strong>. Breaking expressions into small instructions allowed for compiler optimization and simplified what the backend needs to handle.</p>
         <pre class="code-block flow-block" tabindex="0" aria-label="Compiler architecture"><code>Original:  C source &rarr; Frontend / AST &rarr; x86-64 assembly
 
@@ -65,8 +65,8 @@ RETURN t1</code></pre>
         <p><strong>In progress:</strong> completing the optimized IR-to-x86-64 backend. The original backend remains a working reference during the transition.</p>
       </div>
     </article>
-    <a class="back-link bottom-back-link" href="../index.html#projects">&larr; All projects</a>
+    <a class="back-link bottom-back-link" href="../../#projects">&larr; All projects</a>
   </main>
-  <footer><a class="wordmark" href="../index.html">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
+  <footer><a class="wordmark" href="../../">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
 </body>
 </html>

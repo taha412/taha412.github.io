@@ -6,22 +6,22 @@
   <meta name="description" content="A DRAM-buffered pipeline connecting high-speed sensor input to a USB-C host.">
   <meta name="theme-color" content="#10151b">
   <title>FPGA data acquisition | Taha Syed</title>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css">
-  <script src="../script.js" defer></script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="wordmark" href="../index.html" aria-label="Taha Syed home">ts<span>.</span></a>
+    <a class="wordmark" href="../../" aria-label="Taha Syed home">ts<span>.</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span>+</span></button>
     <nav id="navigation" aria-label="Main navigation">
-      <a href="../index.html#about">About</a><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a>
+      <a href="../../#about">About</a><a href="../../#projects">Projects</a><a href="../../#experience">Experience</a><a href="../../#skills">Skills</a>
     </nav>
-    <a class="header-contact" href="../index.html#contact">Contact <span>↗</span></a>
+    <a class="header-contact" href="../../#contact">Contact <span>↗</span></a>
   </header>
   <main id="main" class="project-page">
-    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <a class="back-link" href="../../#projects">&larr; Back to projects</a>
     <article>
       <header class="project-detail-header">
         <div class="project-meta">HARDWARE / SOFTWARE <span>2026</span></div>
@@ -33,14 +33,14 @@
       <p class="source-note">This project was completed as part of my summer research at the Intelligent Sensory Microsystems Laboratory at the University of Toronto. The source code cannot be shared.</p>
       <div class="project-writeup">
         <h2>The problem</h2>
-        <p>In our lab, we needed to verify the results of <strong>link training</strong> by transmitting known data and analyszing the received data for the bit-error rate. However, the receiver was outputting 1080-bit data bursts every 80ns (<strong>13.5 Gbps</strong>), faster than the USB interface can read them (<strong>3.23 Gbp</strong>). I built a <strong>DDR3-buffered acquisition pipeline</strong> to separate capture from readout, allowing the Python host to retrieve a capture at its own pace.</p>
+        <p>In our lab, we needed to verify the results of <strong>link training</strong> by transmitting known data and analyzing the received data for the bit-error rate. However, the receiver was outputting 1080-bit data bursts every 80ns (<strong>13.5 Gbps</strong>), faster than the USB interface can read them (<strong>3.23 Gbps</strong>). I built a <strong>DDR3-buffered acquisition pipeline</strong> to separate capture from readout, allowing the Python host to retrieve a capture at its own pace.</p>
         <p>The design connects a 1,080-bit input on a 100 MHz clock to a 32-bit Opal Kelly output clocked at 100.8 MHz. This allows the collection of a finite number of captures rather than making an indefinitely faster input sustainable.</p>
         <h2>System architecture</h2>
         <p>The datapath spans <strong>three clock domains</strong>: input capture, the 200 MHz DDR user interface, and USB readout. Two asynchronous FIFOs bridge them, with an AXI4 master arbiter coordinating access to the DDR3 MIG controller.</p>
       </div>
       <figure class="project-figure">
-        <a href="../images/acquisition-system.png" target="_blank" rel="noopener"><img src="../images/acquisition-system.png" alt="Data acquisition block diagram showing input gearbox, asynchronous FIFOs, AXI4 arbiter, DDR3 memory, and Opal Kelly USB output" width="2160" height="1215" loading="lazy"></a>
-        <figcaption>System block diagram. <a class="text-link" href="../images/acquisition-system.png" target="_blank" rel="noopener">Open full-size diagram &nearr;</a></figcaption>
+        <a href="../../images/acquisition-system.png" target="_blank" rel="noopener"><img src="../../images/acquisition-system.png" alt="Data acquisition block diagram showing input gearbox, asynchronous FIFOs, AXI4 arbiter, DDR3 memory, and Opal Kelly USB output" width="2160" height="1215" loading="lazy"></a>
+        <figcaption>System block diagram. <a class="text-link" href="../../images/acquisition-system.png" target="_blank" rel="noopener">Open full-size diagram &nearr;</a></figcaption>
       </figure>
       <div class="project-writeup">
         <h2>The Data Path</h2>
@@ -52,10 +52,10 @@
         <p>Reset synchronization, FIFO status checks, and latched underflow/overflow flags make boundary conditions observable. Each piece of incoming 1080 bit data from the sensor is padded with a 200 bit counter before being written to memory, totaling 160 bytes. On the host side, Python reconstructs the 160-byte records and checks the 200 starting bits to ensure bits have not been misaligned and data has not been missed. These checks are important because a stream can arrive without an obvious interface failure while still containing missing or misaligned records.</p>
         <h2>Results</h2>
         <p>The pipeline was able to collect <strong>10,596,960 output bits</strong> and compare them against the input. Before link training, 548,641 bits differed, a 5.18% error rate. With link training, that fell to 599 bits, or 0.0057%. This was approximately a <strong>99.9% reduction in error bits</strong>.</p>
-        <p>Below is a visual representation of the data collected. On the left is the image sent through the system, and the two images on the right were collected by the Data Acquisiton pipeline.</p>
+        <p>Below is a visual representation of the data collected. On the left is the image sent through the system, and the two images on the right were collected by the Data Acquisition pipeline.</p>
       </div>
       <figure class="project-figure">
-        <a href="../images/acquisition-results.png" target="_blank" rel="noopener"><img src="../images/acquisition-results.png" alt="Input test image compared with corrupted output before link training and substantially cleaner output after link training" width="1440" height="810" loading="lazy"></a>
+        <a href="../../images/acquisition-results.png" target="_blank" rel="noopener"><img src="../../images/acquisition-results.png" alt="Input test image compared with corrupted output before link training and substantially cleaner output after link training" width="1440" height="810" loading="lazy"></a>
         <figcaption></figcaption>
       </figure>
       <div class="project-writeup">
@@ -63,8 +63,8 @@
         <p>The work combined RTL design, AXI handshakes, clock-domain crossing, and Python scripting.</p>
       </div>
     </article>
-    <a class="back-link bottom-back-link" href="../index.html#projects">&larr; All projects</a>
+    <a class="back-link bottom-back-link" href="../../#projects">&larr; All projects</a>
   </main>
-  <footer><a class="wordmark" href="../index.html">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
+  <footer><a class="wordmark" href="../../">ts<span>.</span></a><div><a href="https://github.com/taha412">GitHub ↗</a><a href="https://www.linkedin.com/in/t-syed/">LinkedIn ↗</a><a href="#">Back to top ↑</a></div></footer>
 </body>
 </html>
